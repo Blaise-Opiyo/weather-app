@@ -1,0 +1,360 @@
+html,body{
+    padding: 0;
+    margin: 0;
+    color: #ffffff;
+    background-color: rgb(233,251,254);
+}
+.Geo-cont{
+    /* border: 1px solid coral; */
+    height: 90vh;
+    width: 90vw;
+    border-radius: 30px;
+    padding: 0;
+    margin: 2% auto;
+    display: grid;
+    grid-template-columns:4fr 2fr;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.Geo-cont .location{
+    background-color: azure;
+    /* border-radius: 30px 0 0 30px; */
+    border-radius: 30px;
+    height: inherit;
+    position: relative;
+}
+.Geo-cont .location img{
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+/* ====== TOP LOCATION DETAILS ======= */
+.Geo-cont .location .top-location-details{
+    /* background-color: rgba(224, 109, 242, .4); */
+    position: absolute; 
+    top: 0;
+    left: 0;
+    border-radius: inherit;
+    height: 60%;
+    width: 100%;
+    padding: 10px 0 10px 0;
+    text-align: start;
+    z-index: 1;
+} 
+.Geo-cont .location .top-location-details .the-weather{
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-size: 20px;
+}
+.Geo-cont .location .top-location-details .top-location{
+    width: 30%;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    background-color: rgba(0,0,0,0.6);
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    top: 4%;
+    right: 2%;
+}
+.Geo-cont .location .top-location-details .top-location div{
+    justify-content: left;
+}
+.Geo-cont .location .top-location-details .top-location div p{
+    margin: 0;
+}
+.Geo-cont .location .top-location-details .top-location div:nth-child(1){
+    font-size: 28px;
+    margin: 3px;
+}
+
+/*================= LOCATION SEARCH ======================*/
+.Geo-cont .location .top-location-details .location-search-cont{
+    text-align: center;
+    width: 90%;
+    position: absolute;
+    /* left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%); */
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: inherit;
+}
+.Geo-cont .location .top-location-details .location-search-cont .location-search{
+    width: 60%;
+    height: 40px;
+    /* border-radius: 30px 0 0 30px; */
+    border: 0;
+    outline: 0 solid #ffffff;
+    border: 0 solid rgba(255, 255, 255, 0.5);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+    transition: all .3s linear;
+    background: rgba(255, 255, 255, .2);
+    border-radius: 12px;
+    padding: 10px 10px;
+}
+.Geo-cont .location .top-location-details .location-search-cont .location-search::placeholder{
+    color: rgba(255, 255, 255, .4);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.Geo-cont .location .top-location-details .location-search-cont .location-search:hover{
+    border: 1px solid #ffffff;
+}
+.Geo-cont .location .top-location-details .location-search-cont .location-submit{
+    border-radius: 0 5px 5px 0;
+    border: 0 solid rgba(255, 255, 255, .5);
+    color: rgba(255, 255, 255, .5);
+    padding-right: 10px;
+    padding-left: 10px;
+    background: inherit;
+    height: 40px;
+    transition: all .3s linear;
+}
+.Geo-cont .location .top-location-details .location-search-cont .location-submit:hover{
+    color: rgba(255, 255, 255, 1);
+    /* border: 1px solid rgba(255, 255, 255, 1); */
+}
+
+/* ============= BOTTOM LOCATION DETAILS ============== */
+ .Geo-cont .location .bottom-location-details{
+    /* background-color: rgba(224, 109, 242, .4); */
+    position: absolute; 
+    bottom: 0;
+    left: 0;
+    border-radius: inherit;
+    height: 36%;
+    width: 100%;
+    z-index: 1;
+    text-align: start;
+    
+} 
+.Geo-cont .location .bottom-location-details div{
+    padding: 5px 0 0 5px;
+    align-items: center;
+}
+.Geo-cont .location .bottom-location-details .lower-bottom-location-details div p{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+}
+.Geo-cont .location .bottom-location-details .lower-bottom-location-details .temp{
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+    font-size: 80px;
+}
+.Geo-cont .location .bottom-location-details .lower-bottom-location-details .temp span{
+    font-weight: lighter;
+}
+.Geo-cont .location .bottom-location-details .lower-bottom-location-details .date-place{
+    font-size: 20px;
+    font-weight: lighter;
+}
+.Geo-cont .location .bottom-location-details .lower-bottom-location-details .gif-depict{
+    text-align: end;
+}
+.Geo-cont .location .bottom-location-details .lower-bottom-location-details .gif-depict img{
+    width: 30%;
+    height: 100%;
+}
+.Geo-cont .location::after{
+    position: absolute;
+    content: '';
+    background-color: rgba(0,0,0,0.6);
+    width: 100%;
+    inset: 0;
+    border-radius: inherit;
+}
+.lower-bottom-location-details{
+    display: grid;
+    grid-template-columns: 2fr 5fr 5fr;
+}
+
+/* ========= WEATHER SECTION( RIGHT ) =========== */
+.Geo-cont .weather{
+    box-sizing: border-box;
+    color: #000;
+    border-radius: 0 30px 30px 0;
+    padding: 20px 10px 10px 10px;
+}
+.Geo-cont .weather .city-search{
+    width: 80%;
+    height: 40px;
+    /* border-radius: 30px 0 0 30px; */
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .5);
+    color: #000000;
+    transition: all .3s linear;
+}
+.Geo-cont .weather .city-search:hover{
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
+}
+.Geo-cont .weather .city-submit{
+    border-radius: 0 5px 5px 0;
+    border: 1px solid rgba(0, 0, 0, .5);
+    color: rgba(0, 0, 0, .5);
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 40px;
+    transition: all .3s linear;
+}
+.Geo-cont .weather .city-submit:hover{
+    color: rgba(0, 0, 0, 1);
+    border: 1px solid rgba(0, 0, 0, 1);
+}
+.weather-cont{
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+    box-sizing: border-box;
+    width: 100%;
+    /* height: fit-content;
+    height: -moz-fit-content; */
+    height: fit-content;
+    height: -moz-fit-content;
+    place-items: center;
+    margin: 10px auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    text-align: start;
+    padding: 6%;
+}
+.Geo-cont .weather .weather-cont .main-weather{
+    padding: 0;
+    width: 98%;
+    border-right: 2px solid rgba(0, 0, 0, .5);
+    
+}
+.Geo-cont .weather .weather-cont .main-weather p {
+    margin: 0;
+}
+.Geo-cont .weather .weather-cont .main-weather .weather-temp {
+    font-size: 70px;
+    font-weight: 700;
+}
+.Geo-cont .weather .weather-cont .main-weather .weather-overall{
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.Geo-cont .weather .weather-cont .weather-details{
+    text-align: start;
+    width: 100%;
+    padding: 0 6%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+.Geo-cont .weather .weather-cont .weather-details p{
+    margin: 1% 2%;
+}
+
+/* ========== MEDIA QUERIES =========== */
+@media screen and (max-width: 1125px){
+    .Geo-cont{
+        grid-template-columns:4fr 3fr;
+    }
+    .Geo-cont .location .top-location-details .top-location{
+        width: 40%;
+    }
+    .lower-bottom-location-details{
+        display: grid;
+        grid-template-columns: 2fr 7fr 3fr;
+    }
+    
+}
+@media screen and (max-width: 812px){
+    .Geo-cont{
+        display: block;
+        height: fit-content;
+        height: -moz-fit-content;
+    }
+    .Geo-cont .weather .wearther-search-form{
+        display: none;
+    }
+}
+@media screen and (max-width: 740px){
+    .Geo-cont .location .bottom-location-details .lower-bottom-location-details .temp{
+        font-size: 46px;
+    }
+    .Geo-cont .location .bottom-location-details .lower-bottom-location-details .date-place{
+        font-size: 16px;
+    }
+    .Geo-cont .location .bottom-location-details div{
+        padding: 0;
+        align-items: center;
+    }
+}
+@media screen and (max-width: 580px){
+    .Geo-cont .location .top-location-details .the-weather{
+        font-size: 17px;
+    }
+    .Geo-cont .location .top-location-details .top-location div p{
+        font-size: 14px;
+    }
+    .Geo-cont .location .top-location-details .top-location div:nth-child(1){
+        font-size: 22px;
+    }
+}
+@media screen and (max-width: 508px){
+    .Geo-cont .location .top-location-details .the-weather{
+        font-size: 15px;
+    }
+    .Geo-cont .location .top-location-details .top-location div p{
+        font-size: 12px;
+    }
+    .Geo-cont .location .top-location-details .location-search-cont .location-search{
+        height: 30px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+    .Geo-cont .location .bottom-location-details .lower-bottom-location-details .temp{
+        font-size: 38px;
+    }
+    .Geo-cont .location .bottom-location-details .lower-bottom-location-details .date-place{
+        font-size: 14px;
+    }
+    .Geo-cont .location .bottom-location-details .upper-bottom-location-details{
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 444px){
+    .Geo-cont .location .top-location-details .top-location{
+        width: 60%;
+    }
+    .Geo-cont .location .top-location-details .top-location div:nth-child(1){
+        font-size: 18px;
+    }
+    .Geo-cont .location .top-location-details .top-location div p{
+        font-size: 12px;
+    }
+    .Geo-cont .location .bottom-location-details .lower-bottom-location-details .temp{
+        font-size: 34px;
+    }
+    .Geo-cont .location .bottom-location-details .lower-bottom-location-details .date-place{
+        font-size: 12px;
+    }
+    .Geo-cont .location .bottom-location-details .upper-bottom-location-details{
+        font-size: 14px;
+    }
+    .Geo-cont .weather .weather-cont .main-weather .weather-temp {
+        font-size: 46px;
+    }
+    .Geo-cont .weather .weather-cont .main-weather .weather-overall {
+        font-size: 24px;
+    }    
+    .Geo-cont .weather .weather-cont .main-weather .weather-overall img{
+        width: 36px;
+        height: 36px;
+        letter-spacing: 0;
+    }    
+    .Geo-cont .weather .weather-cont .main-weather p:last-child{
+        font-size: 14px;
+    }    
+}
