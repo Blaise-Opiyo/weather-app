@@ -4,6 +4,10 @@ html,body{
     color: #ffffff;
     background-color: rgb(233,251,254);
 }
+.Geo-wrapper{
+    position: absolute;
+    inset: 0;
+}
 .Geo-cont{
     /* border: 1px solid coral; */
     height: 90vh;

@@ -12,7 +12,9 @@ const Main = () =>{
     const [photo, setPhoto] = useState(null);
     const [weather, setWeather] = useState(null);
     const [weatherfeel, setWeatherfeel] = useState(null);
-    const [time, setTime] = useState(null)
+    const [time, setTime] = useState(null);
+
+    const iconUrl = "http://openweathermap.org/img/wn/";
 
     useEffect(()=>{
         fetchTimezone();
@@ -51,9 +53,9 @@ const Main = () =>{
             return res.json();
         }).then(resJson =>{
             console.log("Success");
-            setWeather(resJson.weather);
+            setWeather(resJson);
             setWeatherfeel(resJson.main);
-            console.log(weather);
+            console.log(weather.cod);
             console.log(weatherfeel);
         }).catch(err=>{
             console.log(err);
@@ -84,12 +86,16 @@ const Main = () =>{
         textAlign: "start",
         margin: 0
     }
-    
+        
     return(
         (weather === null || weatherfeel === null || time === null || location === null  || photo === null) ? (
             <div style={{color:"#000000"}}>Fetching...</div>
         ):(
-            <div className="Geo-cont "> 
+            (weather.cod !== 200) ? (
+                <div style={{color:"#000000"}}>Invalid location</div>
+            ) : (
+                <div className="Geo-wrapper" style={{backgroundColor:(weatherfeel.temp < 24) ? ("#F1F6F9") : ("#FFE5B4")}}>
+                <div className="Geo-cont "> 
                 <div className="location ">
                     <img src={photo} alt="city_architecture_buildings.jpg" />
                     <div className="top-location-details">
@@ -109,7 +115,7 @@ const Main = () =>{
                     <div className="bottom-location-details">
                         
                         <div className="upper-bottom-location-details">
-                            <div style={{fontSize: "20px"}}>Sunny</div>
+                            <div style={{fontSize: "20px"}}>{weather.weather[0].main}</div>
                         </div>
                         <div className=" lower-bottom-location-details">
                             <div className="temp">
@@ -121,7 +127,7 @@ const Main = () =>{
                             <p><i className="fas fa-map-marker-alt" style={{marginRight: "4px"}}></i>{location.state}</p>
                             </div>                    
                             <div className="gif-depict">
-                                <img src={animated_snow} alt="animated_snow.gif"/> 
+                                <img src={iconUrl+weather.weather[0].icon+"@2x.png"} alt={weather.weather[0].icon} width="50px" height="50px"/> 
                             </div>
                         </div>                 
     
@@ -139,7 +145,8 @@ const Main = () =>{
                         <div className="weather-cont">
                             <div className="main-weather">  
                                 <p className="weather-temp"><span >{Math.round(weatherfeel.temp)}</span><span><sup>o</sup></span></p>
-                                <p className="weather-overall" >Sunny <img src={animated_snow} width="50px" height="50px" alt="current weather"/></p>
+                                <p className="weather-overall" >{weather.weather[0].main} </p>
+                                {/* <p className="weather-overall" >{weather[0].main} <img src={animated_snow} width="50px" height="50px" alt="current weather"/></p> */}
                                 { <p>{time[0]} {time[2]} {time[1]}</p> }
                                 {/* <p>Monday 27, July 20</p> */}
                             </div>    
@@ -164,6 +171,9 @@ const Main = () =>{
                         </div>
                 </div>
             </div>
+            </div>
+            )
+            
         )
     
     )
