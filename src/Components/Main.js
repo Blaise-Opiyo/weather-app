@@ -1,8 +1,8 @@
-import {useState, useEffect, useCallback} from 'react';
+import {useState, useEffect} from 'react';
 import '../Styles/Main.css';
 import CityForm from './CityForm';
-import animated_snow from '../Assets/animated_snow.gif';
-import city_architecture_buildings from '../Assets/city_architecture_buildings.jpg';
+// import animated_snow from '../Assets/animated_snow.gif';
+// import city_architecture_buildings from '../Assets/city_architecture_buildings.jpg';
 
 
 const Main = () =>{
@@ -104,7 +104,7 @@ const Main = () =>{
                             <div><i className="fas fa-map-marker-alt"></i></div>
                             <div>
                                 <p style={{fontWeight: "lighter"}}>Current location</p>
-                                <p style={{fontWeight: "bolder"}}>{location.state}, {location.country}</p>
+                                <p style={{fontWeight: "bolder"}}>{(location.state.length === 0) ? location.country : location.state}, {location.country}</p>
                             </div>
                         </div>
                         <div>
@@ -124,7 +124,7 @@ const Main = () =>{
                             <div className="date-place">
                                 { <p>{time[0]} {time[2]} {time[1]}</p> }
                                 {/*<p>Monday, 21 September</p>*/}
-                            <p><i className="fas fa-map-marker-alt" style={{marginRight: "4px"}}></i>{location.state}</p>
+                            <p><i className="fas fa-map-marker-alt" style={{marginRight: "4px"}}></i>{(location.state.length === 0) ? location.country : location.state}</p>
                             </div>                    
                             <div className="gif-depict">
                                 <img src={iconUrl+weather.weather[0].icon+"@2x.png"} alt={weather.weather[0].icon} width="50px" height="50px"/> 
